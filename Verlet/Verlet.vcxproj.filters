@@ -33,9 +33,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Font Include="TEST.TTF">
-      <Filter>Resource Files</Filter>
-    </Font>
-  </ItemGroup>
 </Project>

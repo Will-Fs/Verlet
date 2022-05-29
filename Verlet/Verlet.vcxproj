@@ -149,9 +149,6 @@
     <ClInclude Include="Solver.h" />
     <ClInclude Include="vec2.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Font Include="TEST.TTF" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

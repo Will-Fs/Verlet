@@ -20,6 +20,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+/*
+	Code copied and edited/added to from https://gist.github.com/acidleaf/8957147
+*/
+
 #ifndef __Vec2_H__
 #define __Vec2_H__
 
