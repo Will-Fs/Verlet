@@ -49,7 +49,7 @@ public:
 		return Vec2(x - v.x, y - v.y);
 	}
 	
-	Vec2& operator+=(Vec2& v) {
+	inline Vec2& operator+=(Vec2& v) {
 		x += v.x;
 		y += v.y;
 		return *this;
@@ -101,9 +101,9 @@ public:
 	}
 	
 	void rotate(float deg) {
-		float theta = deg / 180.0 * M_PI;
-		float c = cos(theta);
-		float s = sin(theta);
+		float theta = deg / 180.0f * (float)M_PI;
+		float c = (float)cos(theta);
+		float s = (float)sin(theta);
 		float tx = x * c - y * s;
 		float ty = x * s + y * c;
 		x = tx;
@@ -112,7 +112,7 @@ public:
 	
 	Vec2& normalize() {
 		if (length() == 0) return *this;
-		*this *= (1.0 / length());
+		*this *= (1.0f / length());
 		return *this;
 	}
 
@@ -126,16 +126,20 @@ public:
 		return d.length();
 	}
 	float length() const {
-		return std::sqrt(x * x + y * y);
+		return (float)sqrt((double)x * x + (double)y * y);
 	}
 	void truncate(float length) {
-		float angle = atan2f(y, x);
-		x = length * cos(angle);
-		y = length * sin(angle);
+		float angle = (float)atan2f(y, x);
+		x = length * (float)cos(angle);
+		y = length * (float)sin(angle);
 	}
 	
 	Vec2 ortho() const {
 		return Vec2(y, -x);
+	}
+
+	Vec2 copy() {
+		return Vec2(x, y);
 	}
 	
 	static float dot(Vec2 v1, Vec2 v2) {
@@ -151,9 +155,5 @@ public:
 	
 };
 
-inline std::ostream& operator<<(std::ostream& Str, Vec2 const& v) {
-	// print something from v to str, e.g: Str << v.getX();
-	return Str << "[" << v.x << ", " << v.y << "]";
-}
 
 #endif
