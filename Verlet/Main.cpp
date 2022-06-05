@@ -20,12 +20,12 @@ void init(sf::RenderWindow &window) {
     settings.antialiasingLevel = 8;
 
     window.create(sf::VideoMode((int)width, (int)height), "Verlet", sf::Style::Close, settings);
-    //window.setFramerateLimit(60);
+    window.setFramerateLimit(60);
 }
 
 int main()
 {
-    float dt = 0.1f;
+    float dt = 0.2f;
 
     vector<Particle> particles;
 
@@ -36,7 +36,6 @@ int main()
     constraintShape.setOutlineColor(sf::Color::White);
     constraintShape.setOutlineThickness(-1);
     constraintShape.setPosition(width/2 - constraint_radius_const, height/2 - constraint_radius_const);
-
     
     sf::RenderWindow window;
     sf::Text framerate_text;
@@ -69,7 +68,7 @@ int main()
                 window.close();
         }
 
-        if (frame_num % 1 == 0)
+        if (frame_num % 1 == 0 && particles.size() < 500) 
             particles.push_back(Particle(Vec2(width / 2, 10), 5, sf::Color{(uint8_t)(255 *  + sin(theta)), 100, 100}, Vec2(cos(theta), sin(theta))));
 
         solver.update(dt, particles);

@@ -32,5 +32,28 @@
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Link.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Spring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sfml-audio-d-2.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="sfml-graphics-d-2.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="sfml-network-d-2.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="sfml-system-d-2.dll">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="sfml-window-d-2.dll">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

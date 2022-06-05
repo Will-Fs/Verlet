@@ -48,23 +48,25 @@ struct Solver
 		}
 	}
 
+	void do_collision(Particle& p1, Particle& p2) {
+		Vec2 collision_axis = p1.pos - p2.pos;
+		float dist = collision_axis.length();
+		float min_dist = p1.radius + p2.radius;
+
+		if (dist < min_dist && dist != 0) {
+			Vec2 n = collision_axis / dist;
+			float delta = min_dist - dist;
+			Vec2 move = n * delta * 0.5;
+
+			p1.pos += move;
+			p2.pos -= move;
+		}
+	}
 
 	void solve_collisions(vector<Particle>& particles) {
 		for (Particle& p1 : particles) {
 			for (Particle& p2 : particles) {
-				Vec2 collision_axis = p1.pos - p2.pos;
-				float dist = collision_axis.length();
-				float min_dist = p1.radius + p2.radius;
-
-				if (dist < min_dist && dist != 0) {
-					Vec2 n = collision_axis / dist;
-					float delta = min_dist - dist;
-					Vec2 move = n * delta * 0.5;
-
-					p1.pos += move;
-					p2.pos -= move;
-				}
-
+				do_collision(p1, p2);
 			}
 		}
 	}
